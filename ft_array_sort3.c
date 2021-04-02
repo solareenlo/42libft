@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 17:25:52 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/03/24 20:40:10 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/04/03 08:14:45 by tayamamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	_array_sort3(int *a, t_cmp *cmp)
 	{
 		ft_swap(&a[0], &a[1], sizeof(int));
 		ft_swap(&a[1], &a[2], sizeof(int));
-		return (3);
+		return (4);
 	}
 	ft_swap(&a[0], &a[2], sizeof(int));
 	return (5);
@@ -51,7 +51,7 @@ int	ft_array_sort3(int *a, t_cmp *cmp)
 		}
 		ft_swap(&a[0], &a[1], sizeof(int));
 		ft_swap(&a[0], &a[2], sizeof(int));
-		return (4);
+		return (3);
 	}
 	return (_array_sort3(a, cmp));
 }
