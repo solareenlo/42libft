@@ -1,5 +1,6 @@
 *.a
 *.out
+*.bak
 obj
 libft-unit-test
 libft-war-machine
