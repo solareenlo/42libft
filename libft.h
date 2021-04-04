@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 05:05:31 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/04/03 10:01:25 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/04/04 11:05:01 by tayamamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ int		ft_flsll(long long mask);
 int		ft_array_init(t_array *a, size_t size);
 int		ft_array_insert(t_array *a, int element);
 void	ft_array_free(t_array *a);
+int		ft_array_is_sorted(int *a, size_t size, t_cmp *cmp);
 int		ft_array_sort2(int *a, t_cmp *cmp);
 int		ft_array_sort3(int *a, t_cmp *cmp);
 int		ft_array_sort4(int *a, t_cmp *cmp);
