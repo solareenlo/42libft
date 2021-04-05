@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 17:29:54 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/04/06 01:56:44 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/04/06 03:37:00 by tayamamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ int	ft_deque_get_median(t_deque *dq, int size, t_cmp *cmp)
 	array = malloc(sizeof(int) * ft_deque_get_size(dq, dq->front, dq->back));
 	if (array == NULL)
 		return (0);
+	size = ft_min(size, ft_deque_get_size(dq, dq->front, dq->back));
 	if (dq->front <= dq->back)
-		ft_memmove(array, dq->val, sizeof(int) * size);
+		ft_memmove(array, &dq->val[dq->front], sizeof(int) * size);
 	else
 		_set_array(dq, array);
 	median = ft_array_get_median(array, size, cmp);
