@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 09:01:01 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/03/30 11:39:00 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/04/14 05:38:42 by tayamamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_deque_sort2_front(t_deque *dq, t_cmp *cmp)
 		return (0);
 	if (dq->front == dq->size - 1 )
 	{
-		if (cmp(&dq->val[dq->front], &dq->val[0]) < 0)
+		if (cmp(&dq->val[dq->front], &dq->val[0]) > 0)
 		{
 			ft_swap(&dq->val[dq->front], &dq->val[0], sizeof(int));
 			return (1);
