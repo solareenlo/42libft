@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 05:05:31 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/04/04 11:05:01 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/04/14 13:12:56 by tayamamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ int		ft_array_sort4_4(int *a, t_cmp *cmp);
 int		ft_array_sort4_5(int *a, t_cmp *cmp);
 int		ft_array_sort4_6(int *a, t_cmp *cmp);
 int		ft_array_get_median(int *a, size_t n, t_cmp *cmp);
+int		ft_array_get_first_quartile(int *a, size_t n, t_cmp *cmp);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
@@ -158,6 +159,8 @@ void	ft_stack_pop_back(t_stack *s);
 int		ft_stack_get_back(t_stack *s);
 void	ft_stack_put(t_stack *s);
 void	ft_stack_free(t_stack *s);
+int		ft_min(int a, int b);
+int		ft_max(int a, int b);
 int		get_next_line(int fd, char **line);
 
 #endif
