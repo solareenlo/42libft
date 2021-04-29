@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_array_get_type5_3.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 05:03:44 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/03/09 10:17:46 by tayamamo         ###   ########.fr       */
+/*   Created: 2021/04/27 08:06:43 by tayamamo          #+#    #+#             */
+/*   Updated: 2021/04/28 02:35:18 by tayamamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_array_get_type5_3(int a[5], t_cmp *cmp)
 {
-	size_t	i;
-
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (cmp(&a[0], &a[4]) < 0)
+	{
+		if (cmp(&a[1], &a[2]) < 0)
+		{
+			if (cmp(&a[3], &a[1]) < 0)
+				return (80);
+			if (cmp(&a[2], &a[3]) < 0)
+				return (72);
+			return (74);
+		}
+		if (cmp(&a[3], &a[2]) < 0)
+			return (86);
+		if (cmp(&a[1], &a[3]) < 0)
+			return (78);
+		return (84);
+	}
+	return (-1);
 }

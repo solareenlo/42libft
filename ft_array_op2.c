@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 13:16:53 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/04/14 13:17:26 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/04/22 18:02:59 by tayamamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,14 @@ int	ft_array_get_first_quartile(int *a, size_t n, t_cmp *cmp)
 	res = dup[(n - 1) / 4];
 	free(dup);
 	return (res);
+}
+
+void	ft_array_reverse(int *a, int start, int end)
+{
+	while (start < end)
+	{
+		ft_swap(&a[start], &a[end], sizeof(int));
+		start++;
+		end--;
+	}
 }

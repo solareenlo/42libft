@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 10:55:46 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/03/30 09:13:27 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/04/22 18:28:38 by tayamamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,10 @@ t_deque	*ft_deque_init(int n)
 	dq->back = 0;
 	dq->size = n;
 	return (dq);
+}
+
+void	ft_deque_clear(t_deque *dq)
+{
+	while (!ft_deque_is_empty(dq))
+		ft_deque_pop_front(dq);
 }
