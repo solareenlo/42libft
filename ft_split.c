@@ -6,24 +6,28 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 10:55:41 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/03/31 11:19:44 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/10/07 23:41:28 by tayamamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	void	_free(char **s, size_t size)
+static char		**free_and_return_null(char **s, size_t size)
 {
+	if (!s || !*s)
+		return (NULL);
 	while (size--)
 		free(*s++);
 	free(s);
-	return ;
+	return (NULL);
 }
 
-static	size_t	str_len(char const *s, char c)
+static size_t	str_len(char const *s, char c)
 {
 	size_t	len;
 
+	if (!s)
+		return (0);
 	while (*s == c)
 		s++;
 	len = 0;
@@ -35,10 +39,12 @@ static	size_t	str_len(char const *s, char c)
 	return (len);
 }
 
-static	size_t	cnt_word(char const *s, char c)
+static size_t	cnt_word(char const *s, char c)
 {
 	size_t	cnt;
 
+	if (!s)
+		return (0);
 	cnt = 0;
 	while (*s)
 	{
@@ -52,10 +58,12 @@ static	size_t	cnt_word(char const *s, char c)
 	return (cnt);
 }
 
-void	str_cpy(char *dst, const char **src, const char c)
+static void		copy_str(char *dst, const char **src, const char c)
 {
 	char	*d;
 
+	if (!dst || !src || !*src)
+		return ;
 	d = dst;
 	while (**src == c)
 		(*src)++;
@@ -64,30 +72,29 @@ void	str_cpy(char *dst, const char **src, const char c)
 	*d = '\0';
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
-	char		**res;
-	char		**front;
-	size_t		cnt;
-	size_t		i;
+	char	**strs;
+	char	**front;
+	size_t	cnt;
+	size_t	i;
 
-	res = malloc(sizeof(char *) * (cnt_word(s, c) + 1));
-	if (res == NULL || !s)
+	if (!s)
+		return (NULL);
+	strs = (char **)malloc(sizeof(char *) * (cnt_word(s, c) + 1));
+	if (strs == NULL)
 		return (NULL);
 	cnt = cnt_word(s, c);
-	front = res;
+	front = strs;
 	i = -1;
 	while (++i < cnt)
 	{
-		*res = malloc(sizeof(char) * (str_len(s, c) + 1));
-		if (*res == NULL)
-		{
-			_free(res, i);
-			return (NULL);
-		}
-		str_cpy(*res, &s, c);
-		res++;
+		*strs = (char *)malloc(sizeof(char) * (str_len(s, c) + 1));
+		if (*strs == NULL)
+			return (free_and_return_null(strs, i));
+		copy_str(*strs, &s, c);
+		strs++;
 	}
-	*res = NULL;
+	*strs = NULL;
 	return (front);
 }
